@@ -1,40 +1,23 @@
 bin_PROGRAMS=\
-	test_format \
-	test_format11 \
-	test_format98 \
-	test_wformat \
-	test_cpputilsshared
+	test_coscheduler_tasks \
+	test_coscheduler_mutex
 	
-test_format_SOURCES=\
-		src_test_format/test_format.cc \
+test_coscheduler_tasks_SOURCES=\
+		src/main.cc \
+		src/date.h \
+		src/coscheduler/CoGenerator.hpp \
+		src/coscheduler/CoScheduler.cpp \
+		src/coscheduler/CoScheduler.hpp \
 		tools_config.h
 
-test_format11_SOURCES=\
-		src_test_format/test_format11.cc \
+test_coscheduler_mutex_SOURCES=\
+		src/main2.cc \
+		src/date.h \
+		src/coscheduler/CoGenerator.hpp \
+		src/coscheduler/CoScheduler.cpp \
+		src/coscheduler/CoScheduler.hpp \
 		tools_config.h
-
-test_format98_SOURCES=\
-		src_test_format/test_format98.cc \
-		tools_config.h
-		
-test_wformat_SOURCES=\
-		src_test_format/test_wformat.cc \
-		tools_config.h
-
-test_cpputilsshared_SOURCES=\
-		src_test_cpputilsshared/test_string_utils.cc \
-		src_test_cpputilsshared/test_string_utils.h \
-		src_test_cpputilsshared/test_cpputilsshared.cc \
-		src_test_cpputilsshared/test_cyclicarray.h \
-		src_test_cpputilsshared/test_cyclicarray.cc \
-		src_test_cpputilsshared/test_static_vector.h \
-		src_test_cpputilsshared/test_static_vector.cc \
-		src_test_cpputilsshared/test_static_list.h \
-		src_test_cpputilsshared/test_static_list.cc \
-		src_test_cpputilsshared/test_static_string.h \
-		src_test_cpputilsshared/test_static_string.cc \
-		tools_config.h
-		
+	
 
 AM_CPPFLAGS = -I$(top_srcdir)/tools \
 	-I$(top_srcdir)/cpputils/cpputilsshared  \
@@ -77,7 +60,6 @@ cpputils_cpputilsshared_libcpputilsshared_a_SOURCES= \
 		cpputils/cpputilsshared/leoini.cc \
 		cpputils/cpputilsshared/map_utils.h \
 		cpputils/cpputilsshared/pairs.h \
-		cpputils/cpputilsshared/pairs.cc \
 		cpputils/cpputilsshared/range.h \
 		cpputils/cpputilsshared/ref.h \
 		cpputils/cpputilsshared/stderr_exception.h \
@@ -119,23 +101,13 @@ common_libcommon_a_SOURCES=\
 	common/ColBuilder.h \
 	common/ColBuilder.cc
 
-test_format_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
-	cpputils/io/libcpputilsio.a
-
-test_format11_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
-	cpputils/io/libcpputilsio.a
-
-test_format98_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
-	cpputils/io/libcpputilsio.a
-
-test_wformat_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
+test_coscheduler_tasks_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
 	cpputils/io/libcpputilsio.a \
 	cpputils/cpputilsshared/libcpputilsshared.a
-
-test_cpputilsshared_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
+	
+test_coscheduler_mutex_LDADD = cpputils/cpputilsshared/cpputilsformat/libcpputilsformat.a \
 	cpputils/io/libcpputilsio.a \
-	cpputils/cpputilsshared/libcpputilsshared.a \
-	common/libcommon.a
+	cpputils/cpputilsshared/libcpputilsshared.a
 				 
 LIBS=
     

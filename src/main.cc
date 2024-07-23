@@ -1,7 +1,6 @@
 /**
  * @author Martin Oberzalek
  */
-#if 0
 #include "ColoredOutput.h"
 #include <arg.h>
 #include <iostream>
@@ -304,4 +303,3 @@ int main( int argc, char **argv )
 	return 0;
 }
 
-#endif
