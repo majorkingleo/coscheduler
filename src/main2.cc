@@ -10,12 +10,15 @@
 #include <coroutine>
 #include "coscheduler/CoScheduler.hpp"
 #include "coscheduler/CoGenerator.hpp"
+#include "CoSchedulerStaticConf.h"
 
 using namespace std::chrono_literals;
 using namespace std::chrono;
-using namespace CoScheduler;
 using namespace Tools;
 
+using Scheduler = CoScheduler::Scheduler<StaticConf>;
+using YIELD = CoScheduler::YIELD;
+using mutex = CoScheduler::mutex;
 
 Scheduler sch;
 mutex my_mutex;

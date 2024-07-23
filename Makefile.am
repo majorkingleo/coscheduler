@@ -6,15 +6,15 @@ test_coscheduler_tasks_SOURCES=\
 		src/main.cc \
 		src/date.h \
 		src/coscheduler/CoGenerator.hpp \
-		src/coscheduler/CoScheduler.cpp \
 		src/coscheduler/CoScheduler.hpp \
+		CoSchedulerDynamicConf.h \
 		tools_config.h
 
 test_coscheduler_mutex_SOURCES=\
 		src/main2.cc \
 		src/coscheduler/CoGenerator.hpp \
-		src/coscheduler/CoScheduler.cpp \
 		src/coscheduler/CoScheduler.hpp \
+		CoSchedulerStaticConf.h \
 		tools_config.h
 	
 

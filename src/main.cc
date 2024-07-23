@@ -11,11 +11,14 @@
 #include <thread>
 #include "coscheduler/CoScheduler.hpp"
 #include "coscheduler/CoGenerator.hpp"
+#include "CoSchedulerDynamicConf.h"
 
 using namespace std::chrono_literals;
 using namespace std::chrono;
 using namespace Tools;
-using namespace CoScheduler;
+
+using Scheduler = CoScheduler::Scheduler<DynamicConf>;
+using YIELD = CoScheduler::YIELD;
 
 
 static std::string to_hhmmssms( const std::chrono::time_point<std::chrono::system_clock> tp )
