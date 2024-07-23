@@ -8,8 +8,6 @@
 
 #include <coroutine>
 #include <algorithm>
-#include <chrono>
-#include <thread>
 #include "CoGenerator.hpp"
 
 namespace CoScheduler {
@@ -146,9 +144,7 @@ protected:
 template<class Conf>
 void Scheduler<Conf>::idle()
 {
-	using namespace std::chrono_literals;
-
-	std::this_thread::sleep_for( 10ms );
+	Conf::idle();
 }
 
 

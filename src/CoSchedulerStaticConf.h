@@ -7,6 +7,8 @@
 #pragma once
 
 #include <static_vector.h>
+#include <chrono>
+#include <thread>
 #include "coscheduler/CoScheduler.hpp"
 
 struct StaticConf
@@ -20,6 +22,17 @@ struct StaticConf
 	using CONTAINER_TASKS            = Tools::static_vector<yield_type*,MAX_TASKS>;
 	using CONTAINER_WAITABLE_OBJECTS = Tools::static_vector<CoScheduler::WaitForBase*,MAX_WAITABLE_OBJECTS>;
 	using CONTAINER_WAIT_OBJECTS     = Tools::static_vector<CoScheduler::WaitForBase*,MAX_WAIT_OBJECTS>;
+
+
+	/*
+	 * idle function, this is for testing on the pc,
+	 * on a microcontroller, you may do nothing here
+	 */
+	inline static void idle()
+	{
+		using namespace std::chrono_literals;
+		std::this_thread::sleep_for( 10ms );
+	}
 };
 
 
