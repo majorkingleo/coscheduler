@@ -1,8 +1,6 @@
-/*
- * CoScheduler.cpp
- *
- *  Created on: 14.12.2023
- *      Author: martin.oberzalek
+/**
+ * Coroutine based scheduler
+ * @author Copyright (c) 2023 - 2024 Martin Oberzalek
  */
 #include "CoScheduler.hpp"
 #include <thread>

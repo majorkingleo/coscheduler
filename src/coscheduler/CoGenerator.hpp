@@ -1,8 +1,6 @@
-/*
- * CoGenerator.hpp
- *
- *  Created on: 14.12.2023
- *      Author: martin.oberzalek
+/**
+ * Generator for coroutine based scheduler
+ * @author Copyright (c) 2023 - 2024 Martin Oberzalek
  */
 #pragma once
 #ifndef SRC_COSCHEDULER_COGENERATOR_HPP_

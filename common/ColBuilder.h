@@ -1,10 +1,7 @@
-/*
- * ColBuilder.h
- *
- *  Created on: 27.01.2023
- *      Author: Martin Oberzalek <oberzalek@gmx.at>
+/**
+ * ASCII art class for displaying data in rows and cols
+ * @author Copyright (c) 2023 Martin Oberzalek
  */
-
 #ifndef TEST_COL_BUILDER_H
 #define TEST_COL_BUILDER_H
 

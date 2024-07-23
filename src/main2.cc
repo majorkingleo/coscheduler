@@ -1,5 +1,6 @@
 /**
- * @author Martin Oberzalek
+ * Mutext test
+ * @author Copyright (c) 2023 - 2024 Martin Oberzalek
  */
 #include "ColoredOutput.h"
 #include <arg.h>

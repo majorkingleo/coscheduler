@@ -1,8 +1,7 @@
 /**
- * Test class
+ * Test cases base class
  * @author Copyright (c) 2023 Martin Oberzalek
  */
-
 #ifndef TEST_TESTUTILS_H_
 #define TEST_TESTUTILS_H_
 
