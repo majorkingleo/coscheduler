@@ -12,7 +12,6 @@ test_coscheduler_tasks_SOURCES=\
 
 test_coscheduler_mutex_SOURCES=\
 		src/main2.cc \
-		src/date.h \
 		src/coscheduler/CoGenerator.hpp \
 		src/coscheduler/CoScheduler.cpp \
 		src/coscheduler/CoScheduler.hpp \

@@ -64,6 +64,32 @@ public:
 	}
 };
 
+class mutex : public WaitFor<bool>
+{
+public:
+	bool try_lock() {
+
+		bool & locked = value;
+
+		if( !locked ) {
+			locked = true;
+			return true;
+		}
+
+		return false;
+	}
+
+	void unlock() {
+		bool & locked = value;
+		locked = false;
+	}
+
+	bool condition_reached() const override {
+		// not locked
+		return !value;
+	}
+};
+
 struct Conf
 {
 	using yield_type = CoGenerator<YIELD>;
