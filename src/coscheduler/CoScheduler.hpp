@@ -8,6 +8,7 @@
 
 #include <coroutine>
 #include <algorithm>
+#include <atomic>
 #include "CoGenerator.hpp"
 
 namespace CoScheduler {
@@ -57,19 +58,17 @@ public:
 	using value_type=T;
 	mutable value_type value{};
 
-	virtual ~WaitFor() {}
-
 	virtual bool condition_reached() const {
 		return value;
 	}
 };
 
-class mutex : public WaitFor<bool>
+class mutex : public WaitFor<std::atomic<bool>>
 {
 public:
 	bool try_lock() {
 
-		bool & locked = value;
+		value_type & locked = value;
 
 		if( !locked ) {
 			locked = true;
@@ -80,7 +79,7 @@ public:
 	}
 
 	void unlock() {
-		bool & locked = value;
+		value_type & locked = value;
 		locked = false;
 	}
 
