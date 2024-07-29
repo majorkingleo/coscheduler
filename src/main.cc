@@ -46,7 +46,7 @@ static std::string to_hhmmss( const std::chrono::time_point<std::chrono::system_
 	//auto ymd = date::year_month_day{dp};
 	auto time = date::make_time(duration_cast<milliseconds>(tp-dp));
 
-	return format("%02d:%02d:%02d",
+	return Tools::format("%02d:%02d:%02d",
 			time.hours().count(),
 			time.minutes().count(),
 			time.seconds().count() );
@@ -59,7 +59,7 @@ Scheduler::yield_type task_function_a()
 
 	while( true )
 	{
-		CPPDEBUG( format( "%s: %s", __FUNCTION__, to_hhmmssms(system_clock::now()) ) );
+		CPPDEBUG( Tools::format( "%s: %s", __FUNCTION__, to_hhmmssms(system_clock::now()) ) );
 		co_yield YIELD( shedule_time, 1ms );
 	}
 
@@ -76,7 +76,7 @@ Scheduler::yield_type task_function_b()
 	{
 		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(system_clock::now() - last_run);
 
-		CPPDEBUG( format( "%s: %s diff: %dms", __FUNCTION__, to_hhmmssms(system_clock::now()), diff.count() ) );
+		CPPDEBUG( Tools::format( "%s: %s diff: %dms", __FUNCTION__, to_hhmmssms(system_clock::now()), diff.count() ) );
 		last_run = system_clock::now();
 
 		auto next_delay = shedule_time;
@@ -101,7 +101,7 @@ Scheduler::yield_type sub_function_c()
 	{
 		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(system_clock::now() - last_run);
 
-		CPPDEBUG( format( "%s: %s count: %d diff: %dms", __FUNCTION__, to_hhmmssms(system_clock::now()), i, diff.count() ) );
+		CPPDEBUG( Tools::format( "%s: %s count: %d diff: %dms", __FUNCTION__, to_hhmmssms(system_clock::now()), i, diff.count() ) );
 		last_run = system_clock::now();
 		co_yield YIELD( shedule_time, 1ms );
 	}
@@ -115,7 +115,7 @@ Scheduler::yield_type task_function_c()
 
 	while( true )
 	{
-		CPPDEBUG( format( "%s: %s", __FUNCTION__, to_hhmmssms(system_clock::now()) ) );
+		CPPDEBUG( Tools::format( "%s: %s", __FUNCTION__, to_hhmmssms(system_clock::now()) ) );
 
 		auto sub = sub_function_c();
 		while( sub ) {
